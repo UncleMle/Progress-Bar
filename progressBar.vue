@@ -26,18 +26,18 @@ export default {
             this.progText = text;
             var progressInt = setInterval(() => {
                 if(totalTime == 0) return clearInterval(progressInt), this.showBar = false, this.colour = 'rgba(0, 255, 42, 0.538)', this.currentPercent = 100;
-                this.currentPercent = Math.trunc((totalTime / time)*100)
-                const timeValues = [60, 50, 20, 15]
-                const colourValues = ['rgba(123, 255, 0, 0.538)', 'rgba(238, 255, 81, 0.538)', 'rgba(255, 156, 81, 0.538)', 'rgba(255, 81, 81, 0.538)']
+                this.currentPercent = Math.trunc((totalTime / time)*100);
+                const timeValues = [60, 50, 20, 15];
+                const colourValues = ['rgba(123, 255, 0, 0.538)', 'rgba(238, 255, 81, 0.538)', 'rgba(255, 156, 81, 0.538)', 'rgba(255, 81, 81, 0.538)'];
 
                 timeValues.find((item, i) => {
                     if(this.currentPercent <= item) {
-                        this.colour = colourValues[i]
-                        return
+                        this.colour = colourValues[i];
+                        return;
                     }
                 })
 
-                totalTime--
+                totalTime--;
             }, 1000);
         }
     },
